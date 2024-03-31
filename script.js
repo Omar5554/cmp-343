@@ -31,6 +31,7 @@ function handleSubmission(event) {
         deadline: taskDeadline,
         completed: false // New tasks are not completed by default
     });
+    console.log(tasks);
     render();
     document.getElementById('taskForm').reset();
 
@@ -38,16 +39,17 @@ function handleSubmission(event) {
 // Function to render tasks in the table
 function render() {
     // TODO: Use array methods to create a new table row of data for each item in the arr
-    const rowsHtml = tasks.map(task => {
-        return `<tr>
-        <td>${task.name}</td>
-        <td>${task.description}</td>
-        <td>${task.deadline}</td>
-        <td><button onclick="toggleTaskCompleted(${task.id})">Complete</button></td>
-        <td><button onclick="deleteTask(${task.id})">Delete</button></td>
-    </tr>`;
-}).join('');
-}
+    function render() {
+        taskTable.innerHTML = tasks.map(task => `
+            <tr>
+                <td>${task.name}</td>
+                <td>${task.description}</td>
+                <td>${task.deadline}</td>
+                <td><button onclick="toggleTaskCompleted(${task.id})">Complete</button></td>
+                <td><button onclick="deleteTask(${task.id})">Delete</button></td>
+            </tr>
+        `).join('');
+    }   } 
 // Function to initialize the table
 function init() {
     taskTable.innerHTML = ''; // Clear the table

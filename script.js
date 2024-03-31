@@ -10,3 +10,22 @@ const taskForm = document.getElementById('taskForm');
 const taskTable = document.getElementById('taskTable');
 console.log('taskForm:', taskForm);
 console.log('taskTable:', taskTable);
+
+// Function to handle form submissions
+function handleSubmission(event) {
+    event.preventDefault();
+    // TODO: Get form input values
+    // TODO: Validate input fields
+    // TODO: Update the tasks array
+    render();
+}
+// Function to render tasks in the table
+function render() {
+    // TODO: Use array methods to create a new table row of data for each item in the arr
+}
+// Function to initialize the table
+function init() {
+    taskTable.innerHTML = ''; // Clear the table
+    tasks = []; // Reset the tasks array
+    render(); // Call the render function
+}
